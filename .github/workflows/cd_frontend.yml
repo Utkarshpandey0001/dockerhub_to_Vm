@@ -23,5 +23,5 @@ jobs:
           build-args:
             - DATABASE_URL=${{ secrets.DATABASE_URL }}
           push: true
-          tags: pandey/todo-app-websocket:${{ github.sha }}
+          tags: utkarshpandey4/todo-app-websocket:${{ github.sha }}
       ## Step to deploy this to a VM
