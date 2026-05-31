@@ -28,5 +28,5 @@ jobs:
         run: |
           echo "$SSH_PRIVATE_KEY" | base64 --decode > ~/ssh_key
           chmod 600 ~/ssh_key
-          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@13.127.110.254 "docker stop user_backend && docker run --name user_backend -d -p 8080:8080 utkarshpandey4/todo-app-backend:${{ github.sha }}"
+          ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@13.127.110.254 "docker stop user_backend && docker run --name user_backend -d -p 8080:8080 utkarshpandey4/todo-app-backend:${{ github.sha }}"
 
