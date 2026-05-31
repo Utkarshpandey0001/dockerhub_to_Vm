@@ -24,8 +24,8 @@ jobs:
           tags: utkarshpandey4/todo-app-websocket:${{ github.sha }}
       - name: Deploy to the VM
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
-          chmod 700 /home/runner/ssh_key
-          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@13.127.110.254 -t "docker stop user_ws && docker run --name user_ws -d -p 8080:8080 100xdevs/todo-app-websocket:${{ github.sha }}"
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/ssh_key
+          chmod 600 ~/ssh_key
+          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@13.127.110.254 "docker stop user_ws && docker run --name user_ws -d -p 8080:8080 utkarshpandey4/todo-app-websocket:${{ github.sha }}"
 
 
